@@ -8,4 +8,9 @@ h1 {
 	font-size: 63px;
 	font-family: Roboto,sans-serif;
 	color:#2AD941;
+	text-shadow: 2px 2px #000000;
+}
+
+.header {
+	background-color:#4C4C4C;
 }
