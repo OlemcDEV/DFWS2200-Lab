@@ -17,9 +17,15 @@ h1 {
 }
 
 a {
+
 	font-family: Impact, Charcoal, sans-serif;
 	font-size: 22px;
-	color:#2AD941; 
+	color:#2AD941;
+	text-shadow: 2px 2px #000000;
+}
+
+p {
+	font-size: 16px;
 }
 
 .header {
@@ -38,9 +44,9 @@ a {
 .header_right {
 	display:flex;
 	align-items: center;	
-	flex:0.05 0 100px;
+	flex:1 0 100px;
 	background-color: #173D53;
-	justify-content: center;
+	justify-content: space-around;
 }
 
 .container {

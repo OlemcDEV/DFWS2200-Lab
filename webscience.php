@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<title>WebQuiz</title>
+	<title>Web Science Quiz</title>
 </head>
 <body>
 	<div class="header">

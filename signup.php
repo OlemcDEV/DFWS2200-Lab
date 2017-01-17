@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<title>WebQuiz</title>
+	<title>Sign up</title>
 </head>
 <body>
 	<div class="header">
@@ -10,7 +10,7 @@
 			<a href="index.html"><h1>WebQuiz</h1></a>
 		</div>
 		<div class="header_right">
-			<p><a href="signup.php">Sign up</a></p>	
+			<p><a href="signup.php">Sign up</a></p>		
 			<p><a href="webscience.php">Main Quiz</a></p>
 			<p><a href="statistics.php">Statistics</a></p>
 			<p><a href="about.html">ABOUT</a></p>
