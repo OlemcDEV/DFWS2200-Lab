@@ -11,7 +11,7 @@
 		</div>
 		<div class="header_right">
 			<p><a href="signup.php">Sign up</a></p>	
-			<p><a href="webscience.php">Main Quiz</a></p>
+			<p><a href="quiz.php">Quiz</a></p>
 			<p><a href="statistics.php">Statistics</a></p>
 			<p><a href="about.html">ABOUT</a></p>
 		</div>
