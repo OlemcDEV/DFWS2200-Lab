@@ -5,20 +5,6 @@
 	<title>Statistics</title>
 </head>
 <body>
-	<?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password);
-
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} 
-	echo "Connected successfully";
-	?>
 	<div class="header">
 		<div class="header_left">
 			<a href="index.html"><h1>WebQuiz</h1></a>
@@ -31,7 +17,29 @@
 		</div>
 	</div>
 		<div class="container">
-		<p>hei</p>
+            <?php
+            include "constants.php";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM webquiz.questions";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "Question.nr: " . $row["idquestions"]. " - Q: " . $row["question"]. " A: " . $row["answer"]. "<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+            ?>
 		</div>
 	<div class="footer">
 		<div class="footerText">
