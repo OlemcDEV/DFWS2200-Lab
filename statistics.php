@@ -33,7 +33,7 @@
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo "Question.nr: " . $row["idquestions"]. " - Q: " . $row["question"]. " A: " . $row["answer"]. "<br>";
+                    echo "Question.nr: " . $row["questionID"]. " - Q: " . $row["question"]. " A: " . $row["answer"]. "<br>";
                 }
             } else {
                 echo "0 results";
