@@ -17,7 +17,24 @@
 		</div>
 	</div>
 		<div class="container">
-		<p>hei</p>
+            <form id='register' action='register.php' method='post'
+                  accept-charset='UTF-8'>
+                <fieldset >
+                    <legend>Register</legend>
+                    <label for='name' >Your Full Name*: </label>
+                    <input type='text' name='name' id='name' maxlength="45" /><br><br>
+
+                    <label for='email' >Email Address*:</label>
+                    <input type='text' name='email' id='email' maxlength="45" /><br><br>
+
+                    <label for='username' >UserName*:</label>
+                    <input type='text' name='username' id='username' maxlength="45" /><br><br>
+
+                    <label for='password' >Password*:</label>
+                    <input type='password' name='password' id='password' maxlength="45" />
+                    <input type='submit' name='Submit' value='Submit' />
+                </fieldset>
+            </form>
 		</div>
 	<div class="footer">
 		<div class="footerText">

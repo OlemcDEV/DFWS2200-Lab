@@ -28,7 +28,9 @@ a {
 	text-shadow: 2px 2px #000000;
 }
 
-p {
+.p_info {
+	margin: 0em 0em 1.5em 0em;
+	font-family: Verdana;
 	font-size: 16px;
 }
 
@@ -56,6 +58,7 @@ p {
 .container {
     display: flex;
 	flex: 1 0 auto;
+	flex-direction: column;
 	background-color: #1F526F;/*#5F7C8A;*/
 }
 
@@ -71,4 +74,8 @@ p {
 	font-size: 16px;
 	font-family: Impact, Charcoal, sans-serif;
 	text-shadow: 2px 2px #000000;
+}
+
+.image {
+
 }
