@@ -10,31 +10,33 @@
 			<a href="index.html"><h1>WebQuiz</h1></a>
 		</div>
 		<div class="header_right">
-			<p><a href="signup.php">Sign up</a></p>		
-			<p><a href="quiz.php">Quiz</a></p>
-			<p><a href="statistics.php">Statistics</a></p>
-			<p><a href="about.html">ABOUT</a></p>
+            <a href="signup.php">sign up</a>
+            <a href="quiz.php">quiz</a>
+            <a href="statistics.php">statistics</a>
+            <a href="about.html">about</a>
 		</div>
 	</div>
 		<div class="container">
+            <div class="register">
             <form id='register' action='register.php' method='post'
                   accept-charset='UTF-8'>
                 <fieldset >
                     <legend>Register</legend>
-                    <label for='name' >Your Full Name*: </label>
-                    <input type='text' name='name' id='name' maxlength="45" /><br><br>
-
                     <label for='email' >Email Address*:</label>
-                    <input type='text' name='email' id='email' maxlength="45" /><br><br>
+                    <input type='email' placeholder="Thomas@gmail.com"
+                           name='email' id='email' maxlength="45" /><br><br>
 
                     <label for='username' >UserName*:</label>
-                    <input type='text' name='username' id='username' maxlength="45" /><br><br>
+                    <input type='text' placeholder="Thomas"
+                           name='username' id='username' maxlength="45" /><br><br>
 
                     <label for='password' >Password*:</label>
-                    <input type='password' name='password' id='password' maxlength="45" />
+                    <input type='password' placeholder="Thomas123"
+                           name='password' id='password' maxlength="45" />
                     <input type='submit' name='Submit' value='Submit' />
                 </fieldset>
             </form>
+            </div>
 		</div>
 	<div class="footer">
 		<div class="footerText">

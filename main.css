@@ -20,23 +20,68 @@ h1 {
 	text-shadow: 2px 2px #000000;
 }
 
-a {
-
+.header a {
 	font-family: Impact, Charcoal, sans-serif;
+	text-transform: capitalize;
 	font-size: 22px;
 	color:#2AD941;
 	text-shadow: 2px 2px #000000;
 }
+a {
+	animation-name: a_animation;
+	animation-duration: 1s;
+}
+a:hover {
+	font-size: 30px;
+}
 
-.p_info {
+.p_about {
 	margin: 0em 0em 1.5em 0em;
 	font-family: Verdana;
 	font-size: 16px;
+	font-weight: bold;
 }
 
+@keyframes colorchange {
+	from {background-color: #173D53;}
+	to {background-color: #1d8363;}
+}
+
+@keyframes a_animation {
+	0% {
+		transform: rotate(0deg);
+		left: 0px;
+	}
+	25% {
+		transform: rotate(20deg);
+		left: 0px;
+	}
+	50% {
+		transform: rotate(0deg);
+		left: 500px;
+	}
+	55% {
+		transform: rotate(0deg);
+		left: 500px;
+	}
+	70% {
+		transform: rotate(0deg);
+		left: 500px;
+	}
+	100% {
+		transform: rotate(-360deg);
+		left: 0px;
+	}
+
+}
 .header {
 	margin: 0;
 	display:flex;
+	background-color: #173D53;
+	animation-name: colorchange;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 .header_left {
@@ -44,14 +89,12 @@ a {
 	align-items: center;
 	justify-content: flex-start;
 	flex:1 0 100px;
-	background-color: #173D53;
 }
 
 .header_right {
 	display:flex;
 	align-items: center;	
 	flex:1 0 100px;
-	background-color: #173D53;
 	justify-content: space-around;
 }
 
@@ -59,6 +102,8 @@ a {
     display: flex;
 	flex: 1 0 auto;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	background-color: #1F526F;/*#5F7C8A;*/
 }
 
@@ -76,6 +121,27 @@ a {
 	text-shadow: 2px 2px #000000;
 }
 
-.image {
+input[type=text], input[type=email], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
 
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+fieldset {
+	border-color: chartreuse;
 }
