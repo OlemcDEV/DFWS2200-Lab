@@ -10,7 +10,7 @@
         <a href="index.html"><h1>WebQuiz</h1></a>
     </div>
     <div class="header_right">
-        <a href="signup.php">sign up</a>
+        <a href="signup.php">sign up/sign in</a>
         <a href="quiz.php">quiz</a>
         <a href="statistics.php">statistics</a>
         <a href="about.html">about</a>
