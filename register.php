@@ -19,9 +19,10 @@
         </div>
         <div class="container">
             <?php
-            //$input_email = $_POST["email"];
-            //$input_username = $_POST["username"];
-            //$input_password = $_POST["password"];
+            // Variables
+            $input_email = $_POST["email"];
+            $input_username = $_POST["username"];
+            $input_password = $_POST["password"];
             /* Attempt MySQL server connection. Assuming you are running MySQL
             server with default setting (user 'root' with no password) */
             $link = mysqli_connect("localhost", "root", "", "webquiz");
@@ -31,10 +32,6 @@
                 die("ERROR: Could not connect. " . mysqli_connect_error());
             }
             //Announce email and username
-            $input_email = $_POST["email"];
-            $input_username = $_POST["username"];
-            $input_password = $_POST["password"];
-
             echo "Your email is: $input_email and your username is $input_username";
 
             // Attempt insert query execution
