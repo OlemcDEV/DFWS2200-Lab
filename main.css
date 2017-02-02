@@ -137,3 +137,12 @@ input[type=submit] {
 fieldset {
 	border-color: chartreuse;
 }
+
+.error {
+	color: #FF0000;
+}
+
+.register {
+	width: 20%;
+	height: 40%;
+}
