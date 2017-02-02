@@ -137,12 +137,21 @@ input[type=submit] {
 fieldset {
 	border-color: chartreuse;
 }
-
+/* new stuff */
 .error {
 	color: #FF0000;
 }
 
 .register {
-	width: 20%;
-	height: 40%;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+	.nav {
+		width:100%;
+	}
+	.nav-item {
+		width:100%;
+		float:none;
+	}
+}
+

@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign up</title>
     </head>
     <body>
@@ -25,12 +26,12 @@
 
                 /* Attempt MySQL server connection. Assuming you are running MySQL
                 server with default setting (user 'root' with no password) */
-                $link = mysqli_connect("localhost", "root", "", "webquiz");
+                //$link = mysqli_connect("localhost", "root", "", "webquiz");
 
                 // Check connection
-                if($link === false){
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
-                }
+                //if($link === false){
+                //    die("ERROR: Could not connect. " . mysqli_connect_error());
+                //}
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
