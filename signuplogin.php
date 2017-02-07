@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign up</title>
+        <title>Sign up/Log in</title>
     </head>
     <body>
         <div class="header">
@@ -11,11 +11,10 @@
                 <a href="index.html"><h1>WebQuiz</h1></a>
             </div>
             <div class="header_right">
-                <a href="quiz.php">quiz</a>
+                <a href="quizzes.php">quizzes</a>
                 <a href="statistics.php">statistics</a>
                 <a href="about.html">about</a>
-                <a href="signup.php">sign up</a>
-                <a href="login.php">login</a>
+                <a href="signuplogin.php">sign up/log in</a>
             </div>
         </div>
             <div class="container">
@@ -26,12 +25,12 @@
 
                 /* Attempt MySQL server connection. Assuming you are running MySQL
                 server with default setting (user 'root' with no password) */
-                //$link = mysqli_connect("localhost", "root", "", "webquiz");
+                $link = mysqli_connect("S70", "140438@localhost", "50103", "140438");
 
                 // Check connection
-                //if($link === false){
-                //    die("ERROR: Could not connect. " . mysqli_connect_error());
-                //}
+                if($link === false){
+                    die("ERROR: Could not connect. " . mysqli_connect_error());
+                }
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -124,10 +123,5 @@
                     ?>
                 </div>
             </div>
-        <div class="footer">
-            <div class="footerText">
-            <p>Made by Ole Magnus Carlstedt</p>
-            </div>
-        </div>
     </body>
 </html>

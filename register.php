@@ -11,11 +11,10 @@
                 <a href="index.html"><h1>WebQuiz</h1></a>
             </div>
             <div class="header_right">
-                <a href="quiz.php">quiz</a>
+                <a href="quizzes.php">quizzes</a>
                 <a href="statistics.php">statistics</a>
                 <a href="about.html">about</a>
-                <a href="signup.php">sign up</a>
-                <a href="login.php">login</a>
+                <a href="signuplogin.php">sign up/log in</a>
             </div>
         </div>
         <div class="container">
@@ -46,11 +45,6 @@
             // Close connection
             mysqli_close($link);
             ?>
-        </div>
-        <div class="footer">
-            <div class="footerText">
-                <p>Made by Ole Magnus Carlstedt</p>
-            </div>
         </div>
     </body>
 </html>
