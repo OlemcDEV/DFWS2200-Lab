@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign up/Log in</title>
     </head>
     <body>
         <div class="header">
             <div class="header_left">
-                <a href="index.html"><h1>WebQuiz</h1></a>
+                <a href="index.php"><h1>WebQuiz</h1></a>
             </div>
             <div class="header_right">
                 <a href="quizzes.php">quizzes</a>
                 <a href="statistics.php">statistics</a>
-                <a href="about.html">about</a>
+                <a href="about.php">about</a>
                 <a href="signuplogin.php">sign up/log in</a>
             </div>
         </div>
@@ -25,12 +25,12 @@
 
                 /* Attempt MySQL server connection. Assuming you are running MySQL
                 server with default setting (user 'root' with no password) */
-                $link = mysqli_connect("S70", "140438@localhost", "50103", "140438");
+                //$link = mysqli_connect("S70", "140438@localhost", "50103", "140438");
 
                 // Check connection
-                if($link === false){
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
-                }
+                //if($link === false){
+                //    die("ERROR: Could not connect. " . mysqli_connect_error());
+                //}
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
