@@ -23,15 +23,6 @@
                 $emailErr = $usernameErr = $passwordErr = $genderErr = "";
                 $email = $username = $password = $gender = "";
 
-                /* Attempt MySQL server connection. Assuming you are running MySQL
-                server with default setting (user 'root' with no password) */
-                //$link = mysqli_connect("S70", "140438@localhost", "50103", "140438");
-
-                // Check connection
-                //if($link === false){
-                //    die("ERROR: Could not connect. " . mysqli_connect_error());
-                //}
-
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     if (empty($_POST["email"])) {
@@ -49,7 +40,7 @@
                     } else {
                         $username = test_input($_POST["username"]);
                         // check if name only contains letters and whitespace
-                        if (!ctype_alnum($username)) {
+                        if (!(ctype_alnum($username))) {
                             $usernameErr = "Only letters and numbers allowed";
                         }
                     }
@@ -59,7 +50,7 @@
                     } else {
                         $password = test_input($_POST["password"]);
                         if (!ctype_alnum($password)) {
-                            $usernameErr = "Only letters and numbers allowed!";
+                            $passwordErr = "Only letters and numbers allowed!";
                         }
                     }
 
@@ -76,7 +67,23 @@
                         $data = htmlspecialchars($data);
                         return $data;
                     }
-                    ?>
+                /* Submit was clicked, try to insert data to database */
+                if(isset($_POST['Submit'])) {
+                    //connecting
+                    $link = mysqli_connect("localhost", "140438", "it", "140438");
+                    // Check connection
+                    if ($link === false) {
+                        die("ERROR: Could not connect. " . mysqli_connect_error());
+                        echo "could not connect";
+                    }
+                    else {
+                        echo "connected";
+                        //Insert data
+                        $sql = "INSERT INTO Weser (email, username, password)
+                        VALUES ($email, $username, $password)";
+                    }
+                }
+                ?>
 
                 <div class="register">
                     <form id='register' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' method='post'
@@ -100,6 +107,7 @@
                                    name='password' id='password' maxlength="45" value="<?php echo $password;?>"/>
                             <span class="error"> <?php echo $passwordErr;?></span>
                             <br><br>
+
                             <label for="gender" >Gender*:</label>
                             <br>
                             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female")

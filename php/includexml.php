@@ -24,7 +24,7 @@
 
     print $xmlDoc->saveXML();*/
 
-    $xml=simplexml_load_file("books.xml") or die("Error: Cannot create object");
+    $xml=simplexml_load_file("../xml/books.xml") or die("Error: Cannot create object");
     foreach($xml->children() as $books) {
         echo $books->title . ", ";
         echo $books->author . ", ";
