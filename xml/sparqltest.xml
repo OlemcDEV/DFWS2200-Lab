@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sparql xmlns="http://www.w3.org/2005/sparql-results#"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <head>
+        <variable name="name"/>
+        <variable name="family"/>
+    </head>
+    <results>
+        <result>
+            <binding name="name">
+                <uri>http://www.linkeddatatools.com/plants#magnolia</uri>
+            </binding>
+            <binding name="family">
+                <literal>Magnoliaceae</literal>
+            </binding>
+        </result>
+        <result>
+            <binding name="name">
+                <uri>http://www.linkeddatatools.com/plants#african_lilly</uri>
+            </binding>
+            <binding name="family">
+                <literal>Liliaceae</literal>
+            </binding>
+        </result>
+        <result>
+            <binding name="name">
+                <uri>http://www.linkeddatatools.com/plants#silvertop</uri>
+            </binding>
+            <binding name="family">
+                <literal>Aralianae</literal>
+            </binding>
+        </result>
+        <result>
+            <binding name="name">
+                <uri>http://www.linkeddatatools.com/plants#velvetleaf</uri>
+            </binding>
+            <binding name="family">
+                <literal>Malvaceae</literal>
+            </binding>
+        </result>
+        <result>
+            <binding name="name">
+                <uri>http://www.linkeddatatools.com/plants#manglietia</uri>
+            </binding>
+            <binding name="family">
+                <literal>Magnoliaceae</literal>
+            </binding>
+        </result>
+    </results>
+</sparql>
