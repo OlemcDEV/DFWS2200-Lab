@@ -121,5 +121,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </fieldset>
     </form>
 
-    <a href="/register">Already a user? Login here!</a>
+    <a href="/login">Already a user? Login here!</a>
 </div>
