@@ -73,6 +73,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Retrieving the id from the insertion if nessesary
         $insertId = $db->lastInsertId();
+
+        // Set the session variable for the user
+        $_SESSION["userid"] = $insertId;
+        $_SESSION["username"] = $username;
+
+        // Change route as insertion was success
+        header("location: /");
     }
 }
 

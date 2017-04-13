@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $paths = array(
     "^$" => "home",
@@ -37,6 +38,10 @@ $header_links = array(
 
 // Get the connection saved in the $db variable.
 include "connection/connect.php";
+
+if (!isset($_SESSION["username"])) {
+    header("location: /signuplogin");
+}
 
 ?>
 <!DOCTYPE html>
