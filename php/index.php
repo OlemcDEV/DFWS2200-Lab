@@ -3,14 +3,14 @@ session_start();
 
 $paths = array(
     "^$"                => "home",
-    "^about\/?.*"       => "about",
-    "^quizzes\/?.*"     => "quizzes",
-    "^register\/?.*"    => "register",
-    "^login\/?.*"       => "login",
-    "^register\/?.*"    => "register",
-    "^logout\/?.*"      => "logout",
-    "^statistics\/?.*"  => "statistics",
-    "^.*"               => "home"
+    "^about\/?$"       => "about",
+    "^quizzes\/?$"     => "quizzes",
+    "^register\/?$"    => "register",
+    "^login\/?$"       => "login",
+    "^register\/?$"    => "register",
+    "^logout\/?$"      => "logout",
+    "^statistics\/?$"  => "statistics",
+    "^.*"               => "404"
 );
 
 $sites = array(
@@ -21,7 +21,8 @@ $sites = array(
     "register"    => array("title" => "Register",    "component" => "register"),
     "logout"      => array("title" => "Logout",      "component" => "logout"),
     "statistics"  => array("title" => "Statistics",  "component" => "statistics"),
-    "about"       => array("title" => "About",       "component" => "about")
+    "about"       => array("title" => "About",       "component" => "about"),
+    "404"         => array("title" => "Not Found",   "component" => "404")
 );
 
 $site = $sites["home"];
