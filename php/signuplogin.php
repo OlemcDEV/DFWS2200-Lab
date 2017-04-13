@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usernameErr = "Only letters and numbers allowed";
         }
 
-        // Chech if username is taken
+        // Check if username is taken
         $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
