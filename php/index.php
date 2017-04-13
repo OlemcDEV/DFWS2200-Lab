@@ -2,22 +2,26 @@
 session_start();
 
 $paths = array(
-    "^$" => "home",
-    "^about\/?.*" => "about",
-    "^quizzes\/?.*" => "quizzes",
-    "^register\/?.*" => "register",
-    "^login\/?.*" => "login",
-    "^statistics\/?.*" => "statistics",
-    "^.*" => "home"
+    "^$"                => "home",
+    "^about\/?.*"       => "about",
+    "^quizzes\/?.*"     => "quizzes",
+    "^register\/?.*"    => "register",
+    "^login\/?.*"       => "login",
+    "^register\/?.*"    => "register",
+    "^logout\/?.*"      => "logout",
+    "^statistics\/?.*"  => "statistics",
+    "^.*"               => "home"
 );
 
 $sites = array(
-    "home" => array("title" => "Home", "component" => "home"),
-    "quizzes" => array("title" => "Quizzes", "component" => "quizzes"),
-    "register" => array("title" => "Register", "component" => "register"),
-    "login" => array("title" => "Sign Up", "component" => "login"),
-    "statistics" => array("title" => "Statistics", "component" => "statistics"),
-    "about" => array("title" => "About", "component" => "about")
+    "home"        => array("title" => "Home",        "component" => "home"),
+    "quizzes"     => array("title" => "Quizzes",     "component" => "quizzes"),
+    "register"    => array("title" => "Register",    "component" => "register"),
+    "login"       => array("title" => "Login",       "component" => "login"),
+    "register"    => array("title" => "Register",       "component" => "register"),
+    "logout"      => array("title" => "Logout",      "component" => "logout"),
+    "statistics"  => array("title" => "Statistics",  "component" => "statistics"),
+    "about"       => array("title" => "About",       "component" => "about")
 );
 
 $site = $sites["home"];
@@ -38,7 +42,7 @@ $header_links = array(
 // Get the connection saved in the $db variable.
 include "connection/connect.php";
 
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username"]) && $site["component"] !== "login") {
     header("location: /login");
 }
 
@@ -57,9 +61,11 @@ if (!isset($_SESSION["username"])) {
             </div>
             <div class="header_right">
                 <?php foreach ($header_links as $link=>$name) { ?>
-                <a href="<?=$link?>" class="link<?php if ($link === $site["component"]) { echo " active"; } ?>"><?=$name?></a>
+                <a href="<?=$link?>" class="link<?php if ($site["component"] === $link) { echo " active"; } ?>"><?=$name?></a>
                 <?php } ?>
-                <a href="/login" class="link<?php if ("login" === $site["component"]) { echo " active"; } ?>">sign up/log in</a>
+                <?php if ($site["component"] !== "login") { ?>
+                <a href="/logout" class="link">logout</a>
+                <?php } ?>
             </div>
         </div>
         <div class="container">
