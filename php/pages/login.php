@@ -1,7 +1,7 @@
 <?php
 // Define variables and set them to empty values
-$emailErr = $usernameErr = $passwordErr = $genderErr = "";
-$email = $username = $password = $gender = "";
+$usernameErr = $passwordErr = "";
+$username = $password = "";
 
 function test_input($data) {
     $data = trim($data);
@@ -12,16 +12,6 @@ function test_input($data) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
-    } else {
-        $email = test_input($_POST["email"]);
-        // check if e-mail address is well-formed
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-        }
-    }
-
     if (empty($_POST["username"])) {
         $usernameErr = "Username is required";
     } else {
@@ -30,15 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // check if name only contains letters and whitespace
         if (!(ctype_alnum($username))) {
             $usernameErr = "Only letters and numbers allowed";
-        }
-
-        // Check if username is taken
-        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            $usernameErr = "Username is already taken";
         }
     }
 
@@ -52,34 +33,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (empty($_POST["gender"])) {
-        $genderErr = "Gender is required";
-    } else {
-        $gender = test_input($_POST["gender"]);
-    }
-
     // Submit was clicked, try to insert data to database
-    if (isset($_POST["Submit"]) && !$emailErr && !$usernameErr && !$passwordErr && !$genderErr) {
+    if (isset($_POST["Submit"]) && !$usernameErr && !$passwordErr) {
         // Using prepared statement to safely insert user data into tables
-        $stmt = $db->prepare("INSERT INTO user (email, username, password) VALUES (:email, :username, :password)");
+        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username AND password=:password");
 
-        // Declearing types and adding values for the insert
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        // Declearing types and adding values for the statement
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->bindValue(':password', "$2$".md5($password + "webquiz"), PDO::PARAM_STR);
 
         // Execute the query in the database with the inserted values
         $stmt->execute();
 
-        // Retrieving the id from the insertion if nessesary
-        $insertId = $db->lastInsertId();
+        // If the search has a row, then start session and create session variables
+        if ($stmt->rowCount() > 0) {
 
-        // Set the session variable for the user
-        $_SESSION["userid"] = $insertId;
-        $_SESSION["username"] = $username;
+            // Set the session variable for the user
+            $_SESSION["userid"] = $insertId;
+            $_SESSION["username"] = $username;
 
-        // Change route as insertion was success
-        header("location: /");
+            // Change route as login was success
+            header("location: /");
+        } else {
+            $passwordErr = "Username or password does not match...";
+        }
     }
 }
 
@@ -88,36 +65,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="register">
     <form id="register" action="/login" method="post">
         <fieldset>
-            <legend>Register</legend>
-            <label for="email">Email Address*:</label>
-            <input type="email" placeholder="Thomas@gmail.com"
-                name="email" id="email" maxlength="45" value="<?=$email?>" />
-            <span class="error"><?=$emailErr?></span>
-            <br /><br />
-
-            <label for="username">Username*:</label>
+            <legend>Login</legend>
+            <label for="username">Username:</label>
             <input type="text" placeholder="Thomas"
                 name="username" id="username" maxlength="45" value="<?=$username?>" />
             <span class="error"><?=$usernameErr?></span>
             <br /><br />
 
-            <label for="password">Password*:</label>
+            <label for="password">Password:</label>
             <input type="password" placeholder="Thomas123"
                 name="password" id="password" maxlength="45" value="<?=$password?>" />
             <span class="error"><?=$passwordErr?></span>
             <br /><br />
 
-            <label for="gender">Gender*:</label>
-            <br />
-            <input type="radio" name="gender" value="female" id="genderFemale" <?=$gender == "female" ? "checked" : ""?>>
-            <label for="genderFemale">Female</label>
-            <input type="radio" name="gender" value="male" id="genderMale" <?=$gender == "male" ? "checked" : ""?>>
-            <label for="genderMale">Male</label>
-            <br />
-            <span class="error"><?=$genderErr?></span>
-            <br /><br />
-
             <input type="submit" name="Submit" value="Submit" />
         </fieldset>
     </form>
+
+    <a href="/register">Not a user yet? Register here!</a>
 </div>

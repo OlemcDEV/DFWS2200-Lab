@@ -42,7 +42,7 @@ $header_links = array(
 // Get the connection saved in the $db variable.
 include "connection/connect.php";
 
-if (!isset($_SESSION["username"]) && $site["component"] !== "login") {
+if (!isset($_SESSION["username"]) && !preg_match("/^login$|^register$/", $site["component"])) {
     header("location: /login");
 }
 
@@ -63,7 +63,7 @@ if (!isset($_SESSION["username"]) && $site["component"] !== "login") {
                 <?php foreach ($header_links as $link=>$name) { ?>
                 <a href="<?=$link?>" class="link<?php if ($site["component"] === $link) { echo " active"; } ?>"><?=$name?></a>
                 <?php } ?>
-                <?php if ($site["component"] !== "login") { ?>
+                <?php if (!preg_match("/^login$|^register$/", $site["component"])) { ?>
                 <a href="/logout" class="link">logout</a>
                 <?php } ?>
             </div>
