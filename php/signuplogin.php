@@ -75,28 +75,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <legend>Register</legend>
             <label for="email" >Email Address*:</label>
             <input type="email" placeholder="Thomas@gmail.com"
-                    name="email" id="email" maxlength="45" value="<?=$email?>"/>
+                    name="email" id="email" maxlength="45" />
             <span class="error"> <?=$emailErr?></span>
             <br /><br />
 
             <label for="username" >Username*:</label>
             <input type="text" placeholder="Thomas"
-                    name="username" id="username" maxlength="45" value="<?=$username?>"/>
+                    name="username" id="username" maxlength="45" />
             <span class="error"> <?=$usernameErr?></span>
             <br /><br />
 
             <label for="password" >Password*:</label>
             <input type="password" placeholder="Thomas123"
-                    name="password" id="password" maxlength="45" value="<?=$password?>"/>
+                    name="password" id="password" maxlength="45" />
             <span class="error"> <?=$passwordErr?></span>
             <br /><br />
 
             <label for="gender" >Gender*:</label>
             <br />
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female")
-                echo "checked";?> value="female">Female
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male")
-                echo "checked";?> value="male">Male
+            <input type="radio" name="gender" value="female" id="genderFemale">
+            <label for="genderFemale">Female</label>
+            <input type="radio" name="gender" value="male" id="genderMale">
+            <label for="genderMale">Male</label>
             <br />
             <span class="error"> <?=$genderErr?></span>
             <br /><br />
