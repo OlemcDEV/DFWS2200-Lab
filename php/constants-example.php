@@ -8,5 +8,5 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "webquiz";
+$dbname = "dbname";
 ?>
