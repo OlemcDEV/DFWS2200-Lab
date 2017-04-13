@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 /* Submit was clicked, try to insert data to database */
-if(isset($_POST['Submit'])) {
+if(isset($_POST["Submit"])) {
     //connecting
     $link = mysqli_connect("localhost", "140438", "it", "140438");
     // Check connection
@@ -67,25 +67,25 @@ if(isset($_POST['Submit'])) {
 ?>
 
 <div class="register">
-    <form id='register' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' method='post'
-            accept-charset='UTF-8'>
+    <form id="register" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"
+            accept-charset="UTF-8">
         <fieldset >
             <legend>Register</legend>
-            <label for='email' >Email Address*:</label>
-            <input type='email' placeholder="Thomas@gmail.com"
-                    name='email' id='email' maxlength="45" value="<?php echo $email;?>"/>
+            <label for="email" >Email Address*:</label>
+            <input type="email" placeholder="Thomas@gmail.com"
+                    name="email" id="email" maxlength="45" value="<?php echo $email;?>"/>
             <span class="error"> <?php echo $emailErr;?></span>
             <br><br>
 
-            <label for='username' >Username*:</label>
-            <input type='text' placeholder="Thomas"
-                    name='username' id='username' maxlength="45" value="<?php echo $username;?>"/>
+            <label for="username" >Username*:</label>
+            <input type="text" placeholder="Thomas"
+                    name="username" id="username" maxlength="45" value="<?php echo $username;?>"/>
             <span class="error"> <?php echo $usernameErr;?></span>
             <br><br>
 
-            <label for='password' >Password*:</label>
-            <input type='password' placeholder="Thomas123"
-                    name='password' id='password' maxlength="45" value="<?php echo $password;?>"/>
+            <label for="password" >Password*:</label>
+            <input type="password" placeholder="Thomas123"
+                    name="password" id="password" maxlength="45" value="<?php echo $password;?>"/>
             <span class="error"> <?php echo $passwordErr;?></span>
             <br><br>
 
@@ -98,7 +98,7 @@ if(isset($_POST['Submit'])) {
             <br>
             <span class="error"> <?php echo $genderErr;?></span>
             <br><br>
-            <input type='submit' name='Submit' value='Submit' />
+            <input type="submit" name="Submit" value="Submit" />
         </fieldset>
     </form>
     <?php
