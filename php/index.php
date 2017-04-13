@@ -18,7 +18,7 @@ $sites = array(
     "quizzes"     => array("title" => "Quizzes",     "component" => "quizzes"),
     "register"    => array("title" => "Register",    "component" => "register"),
     "login"       => array("title" => "Login",       "component" => "login"),
-    "register"    => array("title" => "Register",       "component" => "register"),
+    "register"    => array("title" => "Register",    "component" => "register"),
     "logout"      => array("title" => "Logout",      "component" => "logout"),
     "statistics"  => array("title" => "Statistics",  "component" => "statistics"),
     "about"       => array("title" => "About",       "component" => "about")
