@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="register">
-    <form id="register" action="/signuplogin" method="post">
+    <form id="register" action="/login" method="post">
         <fieldset>
             <legend>Register</legend>
             <label for="email">Email Address*:</label>
