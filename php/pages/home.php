@@ -1,1 +1,1 @@
-<p>Hjem</p>
+<p>Hei, <?=$_SESSION["username"]?>!</p>

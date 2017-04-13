@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Declearing types and adding values for the statement
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->bindValue(':password', "$2$".md5($password + "webquiz"), PDO::PARAM_STR);
+        $stmt->bindValue(':password', "$2$".md5($password."webquiz"), PDO::PARAM_STR);
 
         // Execute the query in the database with the inserted values
         $stmt->execute();
@@ -48,8 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // If the search has a row, then start session and create session variables
         if ($stmt->rowCount() > 0) {
 
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
             // Set the session variable for the user
-            $_SESSION["userid"] = $insertId;
+            $_SESSION["userid"] = $rows[0]["id"];
             $_SESSION["username"] = $username;
 
             // Change route as login was success

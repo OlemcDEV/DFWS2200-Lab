@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Declearing types and adding values for the insert
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->bindValue(':password', "$2$".md5($password + "webquiz"), PDO::PARAM_STR);
+        $stmt->bindValue(':password', "$2$".md5($password."webquiz"), PDO::PARAM_STR);
 
         // Execute the query in the database with the inserted values
         $stmt->execute();
