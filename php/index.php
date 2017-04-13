@@ -46,7 +46,7 @@ $header_links = array(
     <body>
         <div class="header">
             <div class="header_left">
-                <a href="index.php"><h1>WebQuiz</h1></a>
+                <a href="/"><h1>WebQuiz</h1></a>
             </div>
             <div class="header_right">
                 <?php foreach ($header_links as $link=>$name) { ?>
