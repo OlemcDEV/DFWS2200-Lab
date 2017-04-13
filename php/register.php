@@ -12,7 +12,7 @@ $stmt = $db->prepare("INSERT INTO user (email, username, password) VALUES (:emai
 
 $stmt->bindValue(':email', $input_email, PDO::PARAM_STR);
 $stmt->bindValue(':username', $input_username, PDO::PARAM_STR);
-$stmt->bindValue(':password', $input_password, PDO::PARAM_STR);
+$stmt->bindValue(':password', "$2$".md5($input_password + "webquiz"), PDO::PARAM_STR);
 
 $stmt->execute();
 
