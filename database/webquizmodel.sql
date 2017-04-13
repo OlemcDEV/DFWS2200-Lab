@@ -6,11 +6,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
 -- Schema webquiz
--- -----------------------------------------------------
--- This is current database for web science project.
-
--- -----------------------------------------------------
--- Schema webquiz
 --
 -- This is current database for web science project.
 -- -----------------------------------------------------
@@ -29,28 +24,6 @@ CREATE TABLE IF NOT EXISTS `webquiz`.`user` (
 ENGINE = InnoDB;
 
 ALTER TABLE `webquiz`.`user` ADD UNIQUE(`username`);
-
--- -----------------------------------------------------
--- Table `webquiz`.`questions`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `webquiz`.`questions` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `question` VARCHAR(255) NULL,
-  `answer` VARCHAR(55) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `webquiz`.`questions`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `webquiz`.`questions` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `question` VARCHAR(255) NULL,
-  `answer` VARCHAR(55) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `webquiz`.`quiz`
@@ -111,18 +84,6 @@ CREATE TABLE IF NOT EXISTS `webquiz`.`result` (
 ENGINE = InnoDB;
 
 USE `webquiz` ;
-
--- -----------------------------------------------------
--- Placeholder table for view `webquiz`.`view1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `webquiz`.`view1` (`id` INT);
-
--- -----------------------------------------------------
--- View `webquiz`.`view1`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `webquiz`.`view1`;
-USE `webquiz`;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
