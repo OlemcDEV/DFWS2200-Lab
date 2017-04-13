@@ -35,6 +35,9 @@ $header_links = array(
     "signuplogin" => "sign up/log in"
 );
 
+// Get the connection saved in the $db variable.
+include "connection/connect.php";
+
 ?>
 <!DOCTYPE html>
 <html>
