@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `webquiz`.`user` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+ALTER TABLE `webquiz`.`user` ADD UNIQUE(`username`);
 
 -- -----------------------------------------------------
 -- Table `webquiz`.`questions`
