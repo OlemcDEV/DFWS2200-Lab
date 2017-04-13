@@ -73,32 +73,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form id="register" action="/signuplogin" method="post">
         <fieldset>
             <legend>Register</legend>
-            <label for="email" >Email Address*:</label>
+            <label for="email">Email Address*:</label>
             <input type="email" placeholder="Thomas@gmail.com"
-                    name="email" id="email" maxlength="45" />
-            <span class="error"> <?=$emailErr?></span>
+                name="email" id="email" maxlength="45" />
+            <span class="error"><?=$emailErr?></span>
             <br /><br />
 
-            <label for="username" >Username*:</label>
+            <label for="username">Username*:</label>
             <input type="text" placeholder="Thomas"
-                    name="username" id="username" maxlength="45" />
-            <span class="error"> <?=$usernameErr?></span>
+                name="username" id="username" maxlength="45" />
+            <span class="error"><?=$usernameErr?></span>
             <br /><br />
 
-            <label for="password" >Password*:</label>
+            <label for="password">Password*:</label>
             <input type="password" placeholder="Thomas123"
-                    name="password" id="password" maxlength="45" />
-            <span class="error"> <?=$passwordErr?></span>
+                name="password" id="password" maxlength="45" />
+            <span class="error"><?=$passwordErr?></span>
             <br /><br />
 
-            <label for="gender" >Gender*:</label>
+            <label for="gender">Gender*:</label>
             <br />
             <input type="radio" name="gender" value="female" id="genderFemale">
             <label for="genderFemale">Female</label>
             <input type="radio" name="gender" value="male" id="genderMale">
             <label for="genderMale">Male</label>
             <br />
-            <span class="error"> <?=$genderErr?></span>
+            <span class="error"><?=$genderErr?></span>
             <br /><br />
             <input type="submit" name="Submit" value="Submit" />
         </fieldset>
