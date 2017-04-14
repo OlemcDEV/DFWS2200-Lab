@@ -8,7 +8,7 @@ $questions = $_SESSION["questions"];
 $index = $_SESSION["index"];
 
 // Check if user has posted an answer
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["option"])) {
 
     // Getting the quiz info from DB
     $stmt = $db->prepare("SELECT DISTINCT id, answer FROM question WHERE id=:id");
@@ -45,17 +45,22 @@ if ($stmt->rowCount() === 0) {
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $quiz = $rows[0];
     $question = $questions[$index];
+    $count = count($questions);
     ?>
 
-    Correct: <?=count($_SESSION["correct"])?> / <?=count($questions)?>
+    Correct: <?=count($_SESSION["correct"])?> / <?=$count?>
+    <svg width="100%" height="16px" viewBox="0 0 100 10">
+        <?php for ($i = 0; $i < $index; $i++) { ?>
+        <rect x="<?=$i*100/$count?>" y="0" width="<?=100/$count?>" height="10" fill="<?=in_array($questions[$i]["id"], $_SESSION["correct"]) ? "lime" : "red"?>" />
+        <?php } ?>
+    </svg>
 
-    <h1>Question: <?=$question["question"]?></h1>
+    <h4><?=$question["question"]?></h4>
     <div>
         <form method="post">
-            <input id="option1" name="option" type="radio" value="1" required /><label for="option1"><?=$question["option1"]?></label>
-            <input id="option2" name="option" type="radio" value="2" required /><label for="option2"><?=$question["option2"]?></label>
-            <input id="option3" name="option" type="radio" value="3" required /><label for="option3"><?=$question["option3"]?></label>
-            <input type="submit" name="Submit" value="Submit" />
+            <button type="submit" name="option" value="1"><?=$question["option1"]?></button>
+            <button type="submit" name="option" value="2"><?=$question["option2"]?></button>
+            <button type="submit" name="option" value="3"><?=$question["option3"]?></button>
         </form>
     </div>
 <?php } ?>
