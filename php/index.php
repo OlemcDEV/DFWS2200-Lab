@@ -2,17 +2,18 @@
 session_start();
 
 $paths = array(
-    "^$"                    => "home",
-    "^about\/?$"            => "about",
-    "^quizzes\/?$"          => "quizzes",
-    "^quiz\/[0-9]+$"        => "quiz",
-    "^quiz\/[0-9]+\/play$"  => "play",
-    "^register\/?$"         => "register",
-    "^login\/?$"            => "login",
-    "^register\/?$"         => "register",
-    "^logout\/?$"           => "logout",
-    "^statistics\/?$"       => "statistics",
-    "^.*"                   => "404"
+    "^$"                      => "home",
+    "^about\/?$"              => "about",
+    "^quizzes\/?$"            => "quizzes",
+    "^quiz\/[0-9]+$"          => "quiz",
+    "^quiz\/[0-9]+\/play$"    => "play",
+    "^quiz\/[0-9]+\/result$"  => "result",
+    "^register\/?$"           => "register",
+    "^login\/?$"              => "login",
+    "^register\/?$"           => "register",
+    "^logout\/?$"             => "logout",
+    "^statistics\/?$"         => "statistics",
+    "^.*"                     => "404"
 );
 
 $sites = array(
@@ -20,6 +21,7 @@ $sites = array(
     "quizzes"     => array("title" => "Quizzes",     "component" => "quizzes"),
     "quiz"        => array("title" => "Quiz",        "component" => "quiz"),
     "play"        => array("title" => "Play",        "component" => "play"),
+    "result"      => array("title" => "Result",      "component" => "result"),
     "register"    => array("title" => "Register",    "component" => "register"),
     "login"       => array("title" => "Login",       "component" => "login"),
     "register"    => array("title" => "Register",    "component" => "register"),
