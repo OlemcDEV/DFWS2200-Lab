@@ -6,8 +6,7 @@ $stmt->execute();
 if ($stmt->rowCount() === 0) {
   echo "Could not find any quiz matching id = $args[1]";
 } else {
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $quiz = $rows[0];
+    $quiz = $stmt->fetch();
 
     $stmt = $db->query("SELECT * FROM question WHERE quiz_id=$quiz[id]");
     $count = $stmt->rowCount();

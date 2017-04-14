@@ -6,8 +6,7 @@ $stmt->execute();
 if ($stmt->rowCount() === 0) {
   echo "Could not find any quiz matching id = $args[1]";
 } else {
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $quiz = $rows[0];
+    $quiz = $stmt->fetch();
 
     $stmt = $db->query("SELECT * FROM question WHERE quiz_id=$quiz[id]");
     $count = $stmt->rowCount();
@@ -15,8 +14,19 @@ if ($stmt->rowCount() === 0) {
     $questions = $_SESSION["questions"];
     $correct = $_SESSION["correct"];
 
+    // Insert result into the DB
+    $stmt = $db->prepare("INSERT INTO result (finished, question_count, correct_answers, quiz_id, user_id) VALUES (NOW(), :tot, :corr, :qid, :uid)");
+
+    // Declearing types and adding values for the insert
+    $stmt->bindValue(':tot', $count, PDO::PARAM_INT);
+    $stmt->bindValue(':corr', count($correct), PDO::PARAM_INT);
+    $stmt->bindValue(':qid', $args[1], PDO::PARAM_INT);
+    $stmt->bindValue(':uid', $_SESSION["userid"], PDO::PARAM_INT);
+
+    // Execute the query in the database with the inserted values
+    $stmt->execute();
+
     // Set the session variables back to start as we are finished
-    $_SESSION["questions"] = $stmt->fetchAll(); // The questions in correct order
     $_SESSION["index"] = 0; // The current question
     $_SESSION["correct"] = array(); // Showing which answer is correct from user
     ?>
