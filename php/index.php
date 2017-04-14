@@ -2,20 +2,22 @@
 session_start();
 
 $paths = array(
-    "^$"                => "home",
+    "^$"               => "home",
     "^about\/?$"       => "about",
     "^quizzes\/?$"     => "quizzes",
+    "^quiz\/[0-9]+$"   => "quiz",
     "^register\/?$"    => "register",
     "^login\/?$"       => "login",
     "^register\/?$"    => "register",
     "^logout\/?$"      => "logout",
     "^statistics\/?$"  => "statistics",
-    "^.*"               => "404"
+    "^.*"              => "404"
 );
 
 $sites = array(
     "home"        => array("title" => "Home",        "component" => "home"),
     "quizzes"     => array("title" => "Quizzes",     "component" => "quizzes"),
+    "quiz"        => array("title" => "Quiz",        "component" => "quiz"),
     "register"    => array("title" => "Register",    "component" => "register"),
     "login"       => array("title" => "Login",       "component" => "login"),
     "register"    => array("title" => "Register",    "component" => "register"),
@@ -26,10 +28,12 @@ $sites = array(
 );
 
 $site = $sites["home"];
+$args = array();
 
 foreach ($paths as $path=>$site_obj) {
     if (preg_match("/$path/", $_GET["uri"])) {
         $site = $sites[$site_obj];
+        $args = explode("/", $_GET["uri"]);
         break;
     }
 }
