@@ -12,7 +12,10 @@ if ($stmt->rowCount() === 0) {
     $stmt = $db->query("SELECT * FROM question WHERE quiz_id=$quiz[id]");
     $count = $stmt->rowCount();
 
-    // Setting the session vars to init and play the quiz
+    $questions = $_SESSION["questions"];
+    $correct = $_SESSION["correct"];
+
+    // Set the session variables back to start as we are finished
     $_SESSION["questions"] = $stmt->fetchAll(); // The questions in correct order
     $_SESSION["index"] = 0; // The current question
     $_SESSION["correct"] = array(); // Showing which answer is correct from user
@@ -24,7 +27,15 @@ if ($stmt->rowCount() === 0) {
     <div><?="Questions: $count";?><div>
 
     <h2>Your result:</h2>
-    <p><b>Correct:</b> <?=count($_SESSION["correct"])?> / <?=count($_SESSION["questions"])?> = <?=floor(count($_SESSION["correct"])/count($_SESSION["questions"])*100)?>%</p>
+    <p><b>Correct:</b> <?=count($correct)?> / <?=count($questions)?> = <?=floor(count($correct)/count($questions)*100)?>%</p>
+
+    <h5>You failed at:</h5>
+    <ul>
+        <?php foreach ($questions as $question) { if (!in_array($question["id"], $correct)) { ?>
+        <li><?=$question["question"]?></li>
+        <?php } } ?>
+    </ul>
+
     <br />
     <a href="/quiz/<?=$quiz["id"]?>/play"><button>Play again!</button></a>
 <?php } ?>
