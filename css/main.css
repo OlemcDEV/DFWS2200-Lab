@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One');
+
 html {
 	height: 100%;
 }
@@ -13,18 +15,31 @@ body {
 h1 {
 	margin: 0;
 	text-align: left;
-	font-size: 55px;
-	font-family: Impact, Charcoal, sans-serif;
+	font-size: 75px;
+	font-family: 'Roboto', sans-serif;
 	color:#2AD941;
 	text-shadow: 2px 2px #000000;
+	font-weight: bold;
 }
 
 .header a {
-	font-family: Impact, Charcoal, sans-serif;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
 	text-transform: capitalize;
 	font-size: 22px;
 	color:#2AD941;
 	text-shadow: 2px 2px #000000;
+}
+
+.container a {
+	font-size: 30px;
+	color: #9ACD32;
+}
+
+.container h1 {
+	font-family: Courier New, Courier, monospace;
+	color: #9ACD32;
+	text-shadow: 4px 4px #000;
 }
 a {
 	color: #0f0;
@@ -36,10 +51,11 @@ a {
 }
 
 .p_about {
-	margin: 0em 0em 1.5em 0em;
 	font-family: Verdana;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bold;
+	color: #A05620;
+	text-shadow: 2px 2px #000;
 }
 
 @keyframes colorchange {
@@ -47,7 +63,7 @@ a {
 	to {background-color: #152434;}
 }
 
-@keyframes a_animation {
+/*@keyframes a_animation {
 	from {
 		right: 2000px;
 		position: relative;
@@ -58,7 +74,7 @@ a {
 		position: relative;
 		transform: rotate(360deg);
 	}
-}
+}*/
 
 .header {
 	margin: 0;
@@ -95,7 +111,7 @@ a {
     display: flex;
 	flex: 1 0 auto;
 	flex-direction: column;
-	justify-content: center;
+	/*justify-content: center;*/
 	align-items: center;
 	background-color: #1F526F;/*#5F7C8A;*/
 }
