@@ -1,23 +1,17 @@
-<!--            --><?php
-//            include "constants.php";
-//
-//            // Create connection
-//            $conn = new mysqli($servername, $username, $password, $dbname);
-//            // Check connection
-//            if ($conn->connect_error) {
-//                die("Connection failed: " . $conn->connect_error);
-//            }
-//
-//            //$sql = "SELECT * FROM webquiz.questions";
-//            $result = $conn->query($sql);
-//
-//            if ($result->num_rows > 0) {
-//                // output data of each row
-//                while($row = $result->fetch_assoc()) {
-//                    echo "Question.nr: " . $row["questionID"]. " - Q: " . $row["question"]. " A: " . $row["answer"]. "<br>";
-//                }
-//            } else {
-//                echo "0 results";
-//            }
-//            $conn->close();
-//            ?>
+<?php
+$stmt = $db->query("SELECT *, AVG(correct_answers) AS average FROM result r, quiz q WHERE r.quiz_id=q.id GROUP BY quiz_id ORDER BY average");
+?>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Results</th>
+        <th>Questions</th>
+    </tr>
+    <?php while ($row = $stmt->fetch()) { ?>
+    <tr>
+        <td><a href="/quiz/<?=$row["quiz_id"]?>"><?=$row["name"]?></a></td>
+        <td><?=floor($row["average"]*100 / $row["question_count"])?>%</td>
+        <td><?=$row["question_count"]?></td>
+    </tr>
+    <?php } ?>
+</table>
