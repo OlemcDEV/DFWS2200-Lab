@@ -24,9 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Submit"])) {
     }
 
     // Redirect to the new page with GET as we do not want the user to submit again with refresh
-    // We also need to change session vars before leaving
+    // We also need to change session vars and check if the quiz is finished before leaving
     $_SESSION["index"]++;
-    header("location: /quiz/$args[1]/play");
+    if ($_SESSION["index"] >= count($questions)) {
+        header("location: /quiz/$args[1]/result");
+    } else {
+        header("location: /quiz/$args[1]/play");
+    }
 }
 
 // Getting the quiz info from DB
