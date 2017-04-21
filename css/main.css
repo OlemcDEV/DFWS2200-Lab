@@ -21,7 +21,9 @@ h1 {
 	text-shadow: 2px 2px #000000;
 	font-weight: bold;
 }
-
+span {
+	font-size: 1em;
+}
 .welcome_message {
 	margin: 20%;
     font-size: 35px;
@@ -61,6 +63,7 @@ form {
 	display:flex;
 	align-items: center;
 }
+
 .btn {
 	width: 100%;
 	background-color: #4CAF50;
@@ -72,11 +75,9 @@ form {
 	cursor: pointer;
 }
 button {
-	width: 30%;
 	background-color: #4CAF50;
 	color: white;
-	padding: 14px 20px;
-	margin: auto;
+	padding: 20px 20px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -180,9 +181,6 @@ fieldset {
 /* new stuff */
 .error {
 	color: #FF0000;
-}
-
-.register {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
