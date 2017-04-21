@@ -57,10 +57,12 @@ if ($stmt->rowCount() === 0) {
 
     <h4><?=$question["question"]?></h4>
     <div>
-        <form method="post" class="q">
+        <form method="post">
+            <em>
             <button type="submit" name="option" value="1"><?=$question["option1"]?></button>
             <button type="submit" name="option" value="2"><?=$question["option2"]?></button>
             <button type="submit" name="option" value="3"><?=$question["option3"]?></button>
+            </em>
         </form>
     </div>
 <?php } ?>
