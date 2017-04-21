@@ -40,8 +40,8 @@ if ($stmt->rowCount() === 0) {
     <p><b>Correct:</b> <?=count($correct)?> / <?=count($questions)?> = <?=floor(count($correct)/count($questions)*100)?>%</p>
 
     <svg width="100%" height="16px" viewBox="0 0 100 10">
-        <?php for ($i = 0; $i < $index; $i++) { ?>
-        <rect x="<?=$i*100/$count?>" y="0" width="<?=100/$count?>" height="10" fill="<?=in_array($questions[$i]["id"], $_SESSION["correct"]) ? "lime" : "red"?>" />
+        <?php for ($i = 0; $i < $count; $i++) { ?>
+        <rect x="<?=$i*100/$count?>" y="0" width="<?=100/$count?>" height="10" fill="<?=in_array($questions[$i]["id"], $correct) ? "lime" : "red"?>" />
         <?php } ?>
     </svg>
 
