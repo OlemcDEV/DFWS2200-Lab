@@ -24,6 +24,6 @@ if ($stmt->rowCount() === 0) {
 
     <?php if ($count > 0) { ?>
     <br />
-    <a href="/quiz/<?=$quiz["id"]?>/play"><button>Start quiz</button></a>
+    <a href="/quiz/<?=$quiz["id"]?>/play"><button class="btn">Start quiz</button></a>
     <?php } ?>
 <?php } ?>

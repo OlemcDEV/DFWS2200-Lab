@@ -1,6 +1,6 @@
 <?php
 // Checking if the sessions variables where set
-if (!isset($_SESSION["questions"]) || !isset($_SESSION["index"]) || !isset($_SESSION["correct"])) {
+if (!isset($_SESSION["questions"]) && !isset($_SESSION["index"]) && !isset($_SESSION["correct"])) {
     header("location: /quiz/$args[1]");
 }
 
@@ -51,13 +51,13 @@ if ($stmt->rowCount() === 0) {
     Correct: <?=count($_SESSION["correct"])?> / <?=$count?>
     <svg width="100%" height="16px" viewBox="0 0 100 10">
         <?php for ($i = 0; $i < $index; $i++) { ?>
-        <rect x="<?=$i*100/$count?>" y="0" width="<?=100/$count?>" height="10" fill="<?=in_array($questions[$i]["id"], $_SESSION["correct"]) ? "lime" : "red"?>" />
+        <rect x="<?=$i*100/$count?>" y="0" width="<?=100/$count?>" height="14" fill="<?=in_array($questions[$i]["id"], $_SESSION["correct"]) ? "lime" : "red"?>" />
         <?php } ?>
     </svg>
 
     <h4><?=$question["question"]?></h4>
     <div>
-        <form method="post">
+        <form method="post" class="q">
             <button type="submit" name="option" value="1"><?=$question["option1"]?></button>
             <button type="submit" name="option" value="2"><?=$question["option2"]?></button>
             <button type="submit" name="option" value="3"><?=$question["option3"]?></button>
