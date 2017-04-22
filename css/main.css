@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One');
-
+/*TAGS*/
 html {
 	height: 100%;
+	overflow:auto;
 }
 
 body {
@@ -21,9 +22,112 @@ h1 {
 	text-shadow: 2px 2px #000000;
 	font-weight: bold;
 }
+
+g rect {
+	background-color: #1F526F;
+}
+
 span {
 	font-size: 1em;
 }
+
+a {
+	color: #0f0;
+}
+
+form {
+	display:flex;
+	align-items: center;
+}
+
+em button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 20px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=text], input[type=email], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+fieldset {
+	border-color: chartreuse;
+}
+
+table {
+	color: #333;
+	font-family: 'Roboto', Arial, sans-serif;
+	width: 640px;
+	border-collapse:
+	collapse; border-spacing: 0;
+}
+
+td, th {
+	border: 1px solid transparent; /* No more visible border */
+	height: 30px;
+	transition: all 0.3s; /* Simple transition for hover effect */
+}
+
+th {
+	font-size: 25px;
+	background: #E0510C; /* Darken header a bit */
+	font-weight: bold;
+}
+
+td {
+	background: #808080;
+	text-align: center;
+	font-weight: bold;
+}
+/*ID*/
+#chartdiv {
+	background-color: #1F526F;
+}
+
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:250px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+}
+#table-wrapper table thead th .text {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+
+/*CLASSES*/
 .welcome_message {
 	margin: 20%;
     font-size: 35px;
@@ -51,17 +155,10 @@ span {
 	color: #9ACD32;
 	text-shadow: 4px 4px #000;
 }
-a {
-	color: #0f0;
-}
+
 .q {
 	display:flex;
 	justify-content: space-between;
-}
-
-form {
-	display:flex;
-	align-items: center;
 }
 
 .btn {
@@ -70,14 +167,6 @@ form {
 	color: white;
 	padding: 14px 20px;
 	margin: auto;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-em button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 20px 20px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -95,24 +184,6 @@ em button {
 	color: #A05620;
 	text-shadow: 2px 2px #000;
 }
-
-@keyframes colorchange {
-	from {background-color: #173D53;}
-	to {background-color: #152434;}
-}
-
-/*@keyframes a_animation {
-	from {
-		right: 2000px;
-		position: relative;
-		transform: rotate(0deg);
-	}
-	to {
-		right: 0;
-		position: relative;
-		transform: rotate(360deg);
-	}
-}*/
 
 .header {
 	margin: 0;
@@ -154,35 +225,10 @@ em button {
 	background-color: #1F526F;/*#5F7C8A;*/
 }
 
-input[type=text], input[type=email], input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-input[type=submit] {
-	width: 100%;
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-fieldset {
-	border-color: chartreuse;
-}
-/* new stuff */
 .error {
 	color: #FF0000;
 }
-
+/*PHONE*/
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 	.nav {
 		width:100%;
@@ -191,5 +237,24 @@ fieldset {
 		width:100%;
 		float:none;
 	}
+
+/*ANIMATIONS*/
+@keyframes colorchange {
+	from {background-color: #173D53;}
+	to {background-color: #152434;}
+}
+
+/*@keyframes a_animation {
+	from {
+		right: 2000px;
+		position: relative;
+		transform: rotate(0deg);
+	}
+	to {
+		right: 0;
+		position: relative;
+		transform: rotate(360deg);
+	}
+}*/
 }
 
